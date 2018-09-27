@@ -5,6 +5,12 @@ vermelho = '\033[31m'
 verde = '\033[32m'
 fim = '\033[0;0m'
 
+def jogo():
+    num1 = int(input("DIGITE A PRIMEIRA DEZENA DO JOGO: "))
+    num2 = int(input("DIGITE A SEGUNDA DEZENA DO JOGO: "))
+
+
+    
 def sorteio():
     mega = []
     num1 = random.randint(1,60)
