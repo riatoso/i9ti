@@ -6,9 +6,34 @@ verde = '\033[32m'
 fim = '\033[0;0m'
 
 def jogo():
-    num1 = int(input("DIGITE A PRIMEIRA DEZENA DO JOGO: "))
-    num2 = int(input("DIGITE A SEGUNDA DEZENA DO JOGO: "))
+    ### VALIDA A DEZENA 1 ###
+    print(10*"*****")
+    valida_ap1 = False
+    while valida_ap1 == False:
+        num1 = int(input("DIGITE A 1ª DEZENA DO JOGO: "))
+        try:
+            num1 = int(num1)
+            if num1 > 60 or num1 < 1:
+                print("A Dezena não pode ser menor que 1 , ou maior que 60!")
+            else:
+                print("Dezena 1 , Boa sorte.")
+                valida_ap1 = True
+        except:
+            print("Voce digitou algo errado!")
+    print(10*"*****")
+    ### FIM DO VALIDA DEZENA 1
 
+    num2 = int(input("DIGITE A 2ª DEZENA DO JOGO: "))
+    num3 = int(input("DIGITE A 3ª DEZENA DO JOGO: "))
+    num4 = int(input("DIGITE A 4ª DEZENA DO JOGO: "))
+    num5 = int(input("DIGITE A 5ª DEZENA DO JOGO: "))
+    num6 = int(input("DIGITE A 6ª DEZENA DO JOGO: "))
+
+
+
+
+def confere():
+    pass
 
     
 def sorteio():
@@ -93,6 +118,9 @@ def sorteio():
     mega.sort()
     return mega
 
+aposta = jogo()
+
 sorteado = sorteio()
 
+print(aposta)
 print(verde+"\nA MEGASENA SORTEOU:",sorteado,fim)
