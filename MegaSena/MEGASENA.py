@@ -6,6 +6,8 @@ verde = '\033[32m'
 fim = '\033[0;0m'
 
 def jogo():
+    jogo_ativo = []
+    
     ### VALIDA A DEZENA 1 ###
     print(10*"*****")
     valida_ap1 = False
@@ -17,14 +19,55 @@ def jogo():
                 print("A Dezena não pode ser menor que 1 , ou maior que 60!")
             else:
                 print("Dezena 1 , Boa sorte.")
+                jogo_ativo.append(num1)
                 valida_ap1 = True
         except:
             print("Voce digitou algo errado!")
     print(10*"*****")
     ### FIM DO VALIDA DEZENA 1
+    
+    ### VALIDA A DEZENA 2 ###
+    print(10*"*****")
+    valida_ap2 = False
+    while valida_ap2 == False:
+        num2 = int(input("DIGITE A 2ª DEZENA DO JOGO: "))
+        try:
+            num2 = int(num2)
+            if num2 > 60 or num2 < 1:
+                print("A Dezena não pode ser menor que 1 , ou maior que 60!")
+            elif num2 in jogo_ativo:
+                    print("Esta Dezena ja esta marcada, marque outra!")       
+            else:
+                print("Dezena 2 , Boa sorte.")
+                jogo_ativo.append(num2)
+                valida_ap2 = True
+        except:
+            print("Voce digitou algo errado!")
+    print(10*"*****")
+    ### FIM DO VALIDA DEZENA 2
+    
+    ### VALIDA A DEZENA 3 ###
+    print(10*"*****")
+    valida_ap3 = False
+    while valida_ap3 == False:
+        num3 = int(input("DIGITE A 3ª DEZENA DO JOGO: "))
+        try:
+            num3 = int(num3)
+            if num3 > 60 or num3 < 1:
+                print("A Dezena não pode ser menor que 1 , ou maior que 60!")
+            elif num3 in jogo_ativo:
+                print("Esta Dezena ja esta marcada, marque outra!") 
+            else:
+                print("Dezena 3 , Boa sorte.")
+                jogo_ativo.append(num3)
+                valida_ap3 = True
+        except:
+            print("Voce digitou algo errado!")
+    print(10*"*****")
+    ### FIM DO VALIDA DEZENA 3
 
-    num2 = int(input("DIGITE A 2ª DEZENA DO JOGO: "))
-    num3 = int(input("DIGITE A 3ª DEZENA DO JOGO: "))
+    
+    
     num4 = int(input("DIGITE A 4ª DEZENA DO JOGO: "))
     num5 = int(input("DIGITE A 5ª DEZENA DO JOGO: "))
     num6 = int(input("DIGITE A 6ª DEZENA DO JOGO: "))
