@@ -5,9 +5,12 @@ vermelho = '\033[31m'
 verde = '\033[32m'
 fim = '\033[0;0m'
 
+### JOGO FEITO PELO USUARIOS
+nums_externo = []
+### FIM
+
 def jogo():
     jogo_ativo = []
-    
     ### VALIDA A DEZENA 1 ###
     print(10*"*****")
     valida_ap1 = False
@@ -66,19 +69,79 @@ def jogo():
     print(10*"*****")
     ### FIM DO VALIDA DEZENA 3
 
+    ### VALIDA A DEZENA 4 ###
+    print(10*"*****")
+    valida_ap4 = False
+    while valida_ap4 == False:
+        num4 = int(input("DIGITE A 4ª DEZENA DO JOGO: "))
+        try:
+            num4 = int(num4)
+            if num4 > 60 or num4 < 1:
+                print("A Dezena não pode ser menor que 1 , ou maior que 60!")
+            elif num4 in jogo_ativo:
+                print("Esta Dezena ja esta marcada, marque outra!") 
+            else:
+                print("Dezena 4 , Boa sorte.")
+                jogo_ativo.append(num4)
+                valida_ap4 = True
+        except:
+            print("Voce digitou algo errado!")
+    print(10*"*****")
+    ### FIM DO VALIDA DEZENA 4
+
+    ### VALIDA A DEZENA 5 ###
+    print(10*"*****")
+    valida_ap5 = False
+    while valida_ap5 == False:
+        num5 = int(input("DIGITE A 5ª DEZENA DO JOGO: "))
+        try:
+            num5 = int(num5)
+            if num5 > 60 or num5 < 1:
+                print("A Dezena não pode ser menor que 1 , ou maior que 60!")
+            elif num5 in jogo_ativo:
+                print("Esta Dezena ja esta marcada, marque outra!") 
+            else:
+                print("Dezena 5 , Boa sorte.")
+                jogo_ativo.append(num5)
+                valida_ap5 = True
+        except:
+            print("Voce digitou algo errado!")
+    print(10*"*****")
+    ### FIM DO VALIDA DEZENA 5
+
+    ### VALIDA A DEZENA 6 ###
+    print(10*"*****")
+    valida_ap6 = False
+    while valida_ap6 == False:
+        num6 = int(input("DIGITE A 6ª DEZENA DO JOGO: "))
+        try:
+            num6 = int(num6)
+            if num6 > 60 or num6 < 1:
+                print("A Dezena não pode ser menor que 1 , ou maior que 60!")
+            elif num6 in jogo_ativo:
+                print("Esta Dezena ja esta marcada, marque outra!") 
+            else:
+                print("Dezena 6 , Boa sorte.")
+                jogo_ativo.append(num6)
+                valida_ap6 = True
+        except:
+            print("Voce digitou algo errado!")
+    print(10*"*****")
+    ### FIM DO VALIDA DEZENA 3
+
+    global nums_externo
+    nums_externo = jogo_ativo
+    
+    return jogo_ativo
     
     
-    num4 = int(input("DIGITE A 4ª DEZENA DO JOGO: "))
-    num5 = int(input("DIGITE A 5ª DEZENA DO JOGO: "))
-    num6 = int(input("DIGITE A 6ª DEZENA DO JOGO: "))
+######################################### SEPARA FUNCOES #####
 
 
+### NUMEROS SORTEADOS NA MEGASENA
+mega_externo = []
+### FIM
 
-
-def confere():
-    pass
-
-    
 def sorteio():
     mega = []
     num1 = random.randint(1,60)
@@ -159,11 +222,33 @@ def sorteio():
 
     
     mega.sort()
+    global mega_externo
+    mega_externo = mega
+    
     return mega
 
+############################################# RODA OS SCRIPTS
 aposta = jogo()
-
 sorteado = sorteio()
-
 print(aposta)
 print(verde+"\nA MEGASENA SORTEOU:",sorteado,fim)
+### FIM
+
+############################################# COMPARA JOGOS
+
+def confere():
+    
+    global mega_externo, nums_externo
+    acertos = []
+    for numero in nums_externo:
+        if numero in mega_externo:
+            acertos.append(numero)
+        else:
+            continue
+    return acertos
+
+print(10*"*****")
+print("CALCULANDO ACERTOS!!!")
+time.sleep(5)
+total_a = confere()
+print("Voce acertou os seguinte numeros: ",total_a)
